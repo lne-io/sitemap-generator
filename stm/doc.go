@@ -7,6 +7,6 @@ Number of URLs = 50,000
 
 File size ( uncompressed ) = 50MB
 
-http://godoc.org/github.com/ikeikeikeike/go-sitemap-generator/stm
+https://godoc.org/github.com/lne-io/sitemap-generator/stm
 */
 package stm
