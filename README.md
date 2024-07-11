@@ -1,5 +1,6 @@
+This is a fork from [ikeikeikeike/go-sitemap-generator](https://github.com/ikeikeikeike/go-sitemap-generator)
 
-A go-sitemap-generator is the easiest way to generate Sitemaps in Go.
+A sitemap-generator is the easiest way to generate Sitemaps in Go.
 
 As of version 2.0.0, This Repo is available as a [Go module](https://github.com/golang/go/wiki/Modules).
 
@@ -10,7 +11,7 @@ As of version 2.0.0, This Repo is available as a [Go module](https://github.com/
 package main
 
 import (
-	"github.com/lne-io/sitemap-generator/v2/stm"
+	"github.com/lne-io/sitemap-generator/stm"
 )
 
 
