@@ -92,6 +92,48 @@ func TestJustSetLocElementAndThenItNeedsCompleteValues(t *testing.T) {
 	}
 }
 
+func TestJustSetLocElementAndThenItShouldNotContainDefaultDisallowedValues(t *testing.T) {
+	options := &Options{
+		disallowDefaultLastmod: true,
+		disallowDefaultChangefreq: true,
+		disallowDefaultPriority: true,
+	}
+	smu, err := NewSitemapURL(options, URL{{"loc", "path"}, {"host", "http://example.com"}})
+
+	if err != nil {
+		t.Fatalf(`Fatal to validate! This is a critical error: %v`, err)
+	}
+
+	doc := etree.NewDocument()
+	doc.ReadFromBytes(smu.XML())
+
+	var elm *etree.Element
+	url := doc.SelectElement("url")
+
+	elm = url.SelectElement("loc")
+	if elm == nil {
+		t.Errorf(`Failed to generate xml that loc element is blank: %v`, elm)
+	}
+	if elm != nil && elm.Text() != "http://example.com/path" {
+		t.Errorf(`Failed to generate xml thats deferrent value in loc element: %v`, elm.Text())
+	}
+
+	elm = url.SelectElement("priority")
+	if elm != nil {
+		t.Errorf(`Failed to exclude default priority`)
+	}
+
+	elm = url.SelectElement("changefreq")
+	if elm != nil {
+		t.Errorf(`Failed to exclude default changefreq`)
+	}
+
+	elm = url.SelectElement("lastmod")
+	if elm != nil {
+		t.Errorf(`Failed to exclude default lastmod`)
+	}
+}
+
 func TestSetNilValue(t *testing.T) {
 	smu, err := NewSitemapURL(&Options{}, URL{{"loc", "path"}, {"priority", nil}, {"changefreq", nil}, {"lastmod", nil}, {"host", "http://example.com"}})
 

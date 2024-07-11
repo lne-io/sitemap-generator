@@ -4,31 +4,37 @@ package stm
 func NewOptions() *Options {
 	// Default values
 	return &Options{
-		defaultHost:  "http://www.example.com",
-		sitemapsHost: "", // http://s3.amazonaws.com/sitemap-generator/,
-		publicPath:   "public/",
-		sitemapsPath: "sitemaps/",
-		filename:     "sitemap",
-		verbose:      true,
-		compress:     true,
-		pretty:       false,
-		adp:          NewFileAdapter(),
+		defaultHost:  				"http://www.example.com",
+		sitemapsHost: 				"", // http://s3.amazonaws.com/sitemap-generator/,
+		publicPath:   				"public/",
+		sitemapsPath: 				"sitemaps/",
+		filename:     				"sitemap",
+		verbose:      				true,
+		compress:     				true,
+		pretty:       				false,
+		adp:          				NewFileAdapter(),
+		disallowDefaultLastmod:		false,
+		disallowDefaultChangefreq: 	false,
+		disallowDefaultPriority:	false,
 	}
 }
 
 // Options exists for the Sitemap struct.
 type Options struct {
-	defaultHost  string
-	sitemapsHost string
-	publicPath   string
-	sitemapsPath string
-	filename     string
-	verbose      bool
-	compress     bool
-	pretty       bool
-	adp          Adapter
-	nmr          *Namer
-	loc          *Location
+	defaultHost  				string
+	sitemapsHost 				string
+	publicPath   				string
+	sitemapsPath 				string
+	filename     				string
+	verbose      				bool
+	compress     				bool
+	pretty       				bool
+	adp          				Adapter
+	nmr          				*Namer
+	loc          				*Location
+	disallowDefaultLastmod		bool
+	disallowDefaultChangefreq	bool
+	disallowDefaultPriority		bool
 }
 
 // SetDefaultHost sets that arg from Sitemap.Finalize method
@@ -74,6 +80,21 @@ func (opts *Options) SetPretty(pretty bool) {
 // SetAdapter sets that arg from Sitemap.SetAdapter method
 func (opts *Options) SetAdapter(adp Adapter) {
 	opts.adp = adp
+}
+
+// SetDisallowDefaultLastmod option sets disallowDefaultLastmod option to Options struct which disallows setting a default lastmod if not set by user
+func (opts *Options) SetDisallowDefaultLastmod(disallowDefaultLastmod bool) {
+	opts.disallowDefaultLastmod = disallowDefaultLastmod
+}
+
+// SetDisallowDefaultChangefreq option sets disallowDefaultChangefreq option to Options struct which disallows setting a default changefreq if not set by user 
+func (opts *Options) SetDisallowDefaultChangefreq(disallowDefaultChangefreq bool) {
+	opts.disallowDefaultChangefreq = disallowDefaultChangefreq
+}
+
+// SetDisallowDefaultPriority option sets disallowDefaultPriority option to Options struct which disallows setting a default priority if not set by user
+func (opts *Options) SetDisallowDefaultPriority(disallowDefaultPriority bool) {
+	opts.disallowDefaultPriority = disallowDefaultPriority
 }
 
 // SitemapsHost sets that arg from Sitemap.SitemapsHost method
