@@ -36,13 +36,6 @@ Then
 $ go build
 ```
 
-#### Installation (Legacy download instead of a [Go module](https://github.com/golang/go/wiki/Modules).)
-
-```console
-$ go get gopkg.in/ikeikeikeike/go-sitemap-generator.v1/stm
-$ go get gopkg.in/ikeikeikeike/go-sitemap-generator.v2/stm
-```
-
 ### Features
 
 Current Features or To-Do
