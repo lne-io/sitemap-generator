@@ -5,7 +5,7 @@ A sitemap-generator is the easiest way to generate Sitemaps in Go.
 As of version 2.0.0, This Repo is available as a [Go module](https://github.com/golang/go/wiki/Modules).
 
 
-[![GoDoc](https://godoc.org/github.com/lne-io/sitemap-generator/stm?status.svg)](https://godoc.org/github.com/lne-io/sitemap-generator/stm) [![Build Status](https://travis-ci.org/ikeikeikeike/go-sitemap-generator.svg)](https://travis-ci.org/ikeikeikeike/go-sitemap-generator)
+[![GoDoc](https://godoc.org/github.com/lne-io/sitemap-generator?status.svg)](https://godoc.org/github.com/lne-io/sitemap-generator) [![Build Status](https://travis-ci.org/lne-io/sitemap-generator.svg)](https://travis-ci.org/lne-io/sitemap-generator)
 
 ```go
 package main
