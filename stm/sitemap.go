@@ -75,6 +75,21 @@ func (sm *Sitemap) SetFilename(filename string) {
 	sm.opts.SetFilename(filename)
 }
 
+// SetDisallowDefaultLastmod disallows setting lastmod by default if lastmod is not provided by user
+func (sm *Sitemap) SetDisallowDefaultLastmod(disallowDefaultLastmod bool) {
+	sm.opts.SetDisallowDefaultLastmod(disallowDefaultLastmod)
+}
+
+// SetDisallowDefaultChangefreq disallows setting changefreq by default if changefreq is not provided by user
+func (sm *Sitemap) SetDisallowDefaultChangefreq(disallowDefaultChangefreq bool) {
+	sm.opts.SetDisallowDefaultChangefreq(disallowDefaultChangefreq)
+}
+
+// SetDisallowDefaultPriority disallows setting priority by default if priority is not provided by user
+func (sm *Sitemap) SetDisallowDefaultPriority(disallowDefaultPriority bool) {
+	sm.opts.SetDisallowDefaultPriority(disallowDefaultPriority)
+}
+
 // Create method must be that calls first this method in that before call to Add method on this struct.
 func (sm *Sitemap) Create() *Sitemap {
 	sm.bldrs = NewBuilderIndexfile(sm.opts, sm.opts.IndexLocation())
